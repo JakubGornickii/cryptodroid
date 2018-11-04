@@ -1,5 +1,6 @@
 17
 BINANCE
+https://api.binance.com/api/v1/depth?symbol={TAG}BTC
 ETH,0.0,0.0
 XRP,0.0,0.0
 POWR,0.0,0.0

@@ -1,5 +1,6 @@
 21
 BITBAY
+https://bitbay.net/API/Public/{TAG}BTC/orderbook.json
 ETH,0.1,0.00045
 LSK,0.1,0.2
 LTC,0.1,0.005
