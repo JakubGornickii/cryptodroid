@@ -7,6 +7,7 @@ import jg.cryptodroid.model.Order;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @MarketType(name = "BITBAY")
@@ -14,7 +15,7 @@ public class BitbayMapper implements ExchangeMapper{
 
     private BitbayModel bitbayModel;
 @Override
-    public CoinModel map(CoinList coinList, String queryUrl, String exchangeName) {
+    public Optional<CoinModel> map(CoinList coinList, String queryUrl, String exchangeName) {
         RestTemplate restTemplate = new RestTemplate();
         bitbayModel =  restTemplate.getForObject(queryUrl.replace("{TAG}",coinList.name()).replace("{LTAG}",coinList.name().toLowerCase()), BitbayModel.class);
 
@@ -26,6 +27,6 @@ public class BitbayMapper implements ExchangeMapper{
     List<Order> bidOrderList = bidList.stream()
             .map(s -> new Order(s.get(0),s.get(1)))
             .collect(Collectors.toList());
-    return new CoinModel(coinList,bidOrderList,askOrderList,exchangeName);
+    return Optional.of(new CoinModel(coinList,bidOrderList,askOrderList,exchangeName));
 }
 }

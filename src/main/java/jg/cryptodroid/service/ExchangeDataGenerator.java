@@ -6,13 +6,13 @@ import jg.cryptodroid.enums.CoinList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketDataGenerator {
+public class ExchangeDataGenerator {
     private String name;
     private int numberOfCoins;
     private List<MarketFeesModel> marketFees;
     private String qureyUrl;
 
-    public MarketDataGenerator(String url) {
+    public ExchangeDataGenerator(String url) {
         marketFees = new ArrayList<>();
         generateList(url);
     }

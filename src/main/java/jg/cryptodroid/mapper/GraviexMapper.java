@@ -7,6 +7,7 @@ import jg.cryptodroid.model.CoinModel;
 import jg.cryptodroid.model.Order;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @MarketType(name = "GRAVIEX")
@@ -15,18 +16,18 @@ public class GraviexMapper implements ExchangeMapper {
 
     GraviexModel graviexModel;
     @Override
-    public CoinModel map(CoinList coinList,String queryUrl,String exchangeName) {
+    public Optional<CoinModel> map(CoinList coinList, String queryUrl, String exchangeName) {
         RestTemplate restTemplate = new RestTemplate();
         graviexModel = restTemplate.getForObject(queryUrl.replace("{TAG}",coinList.name()).replace("{LTAG}",coinList.name().toLowerCase()), GraviexModel.class);
 
 
-        return new CoinModel(coinList,
+        return Optional.of(new CoinModel(coinList,
                 graviexModel.getBids().stream()
                         .map(s -> new Order(Double.parseDouble(s.getPrice()),Double.parseDouble(s.getVolume())))
                         .collect(Collectors.toList()),
                 graviexModel.getAsks().stream()
                         .map(s -> new Order(Double.parseDouble(s.getPrice()),Double.parseDouble(s.getVolume())))
-                        .collect(Collectors.toList()), exchangeName);
+                        .collect(Collectors.toList()), exchangeName));
 
 
     }

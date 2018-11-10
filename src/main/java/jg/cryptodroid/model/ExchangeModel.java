@@ -1,22 +1,22 @@
 package jg.cryptodroid.model;
 
 import jg.cryptodroid.enums.CoinList;
-import jg.cryptodroid.service.MarketDataGenerator;
+import jg.cryptodroid.service.ExchangeDataGenerator;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ExchangeModel {
-    private MarketDataGenerator marketDataGenerator;
+    private ExchangeDataGenerator exchangeDataGenerator;
     private String marketName;
     private List<MarketFeesModel> marketFees;
     private String qureyUrl;
 
     public ExchangeModel(String url) {
-        marketDataGenerator = new MarketDataGenerator(url);
-        marketFees = marketDataGenerator.getList();
-        marketName = marketDataGenerator.getName();
-        qureyUrl = marketDataGenerator.getQureyUrl();
+        exchangeDataGenerator = new ExchangeDataGenerator(url);
+        marketFees = exchangeDataGenerator.getList();
+        marketName = exchangeDataGenerator.getName();
+        qureyUrl = exchangeDataGenerator.getQureyUrl();
     }
     public List<CoinList> getCoinsList() {
         return marketFees
@@ -49,5 +49,9 @@ public class ExchangeModel {
 
     public String getQueryUrl() {
         return qureyUrl;
+    }
+
+    public List<MarketFeesModel> getMarketFees() {
+        return marketFees;
     }
 }

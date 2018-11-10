@@ -1,18 +1,21 @@
 package jg.cryptodroid.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 
 
-    @GetMapping("/")
-    public String home(Model model) {
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public ModelAndView home(ModelAndView model) {
+        System.out.println("tututu");
         String greet = "Hello World!";
-        model.addAttribute("greet", greet);
-        return "index";
+        model.setViewName("index");
+        model.addObject("greet", greet);
+        return model;
     }
 
 

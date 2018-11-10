@@ -41,7 +41,7 @@ public class Arbitrage {
                 .map(s -> s.getExchangeModel().getWirhdrawalFee(CoinList.valueOf(coinTag)))
                 .findFirst()
                 .orElse(0.0);
-Double d = (sellPrice-buyPrice)/buyPrice*100;
+        double d = (sellPrice - buyPrice) / buyPrice * 100;
         this.earnPercentage = BigDecimal.valueOf(d)
                 .setScale(2, RoundingMode.HALF_DOWN).doubleValue();
 
@@ -50,12 +50,12 @@ Double d = (sellPrice-buyPrice)/buyPrice*100;
     @Override
     public String toString() {
         return "Arbitraż: [" +
-                "Kupić na = " + marketFrom +" | "+ "prowizja kupna = " + buyFee + "prowizja wypłaty = " + withdrawalFee +
-                " Sprzedać na = " + marketTo +" | "+ "prowizja sprzedaży = + " + sellFee +
-                " Waluta = " + coinTag +" | "+
-                " Cena kupna = " + String.format("%.8f", buyPrice)+" | "+
-                " Cena sprzedaży = " + String.format("%.8f", sellPrice) +" | "+
-                " zysk = " + earnPercentage+"%" +" ]";
+                "Kupić na = " + marketFrom +
+                " Sprzedać na = " + marketTo +
+                " Waluta = " + coinTag + " | " +
+                " Cena kupna = " + String.format("%.8f", buyPrice) + " | " +
+                " Cena sprzedaży = " + String.format("%.8f", sellPrice) + " | " +
+                " zysk = " + earnPercentage + "%" + " ]";
     }
 
     public String getMarketFrom() {

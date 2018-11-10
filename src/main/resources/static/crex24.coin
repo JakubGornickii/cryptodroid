@@ -1,0 +1,13 @@
+10
+CREX24
+https://api.crex24.com/v2/public/orderBook?instrument={TAG}-BTC
+LTC,0.0,0.0
+ETH,0.0,0.0
+XRP,0.0,0.0
+BCH,0.0,0.0
+XMR,0.0,0.0
+DASH,0.0,0.0
+GAME,0.0,0.0
+BTG,0.0,0.0
+ZEC,0.0,0.0
+ETC,0.0,0.0
