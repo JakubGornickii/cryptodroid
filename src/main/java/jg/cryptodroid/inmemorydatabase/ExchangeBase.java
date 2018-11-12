@@ -1,4 +1,4 @@
-package jg.cryptodroid.exchangebase;
+package jg.cryptodroid.inmemorydatabase;
 
 import jg.cryptodroid.ExchangePaser.ExchangePaser;
 

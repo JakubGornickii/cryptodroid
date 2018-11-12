@@ -15,6 +15,8 @@ public class CoinModel implements Serializable {
     private List<Order> askOrders;
     private final double ASK_PRICE;
     private final double BID_PRICE;
+    private final double ASK_VOLUME;
+    private final double BID_VOLUME;
 
     public CoinModel(CoinList tag, List<Order> bidOrders, List<Order> askOrders,String marketName) {
         this.tag = tag;
@@ -23,6 +25,8 @@ public class CoinModel implements Serializable {
         this.makretName = marketName;
         ASK_PRICE = this.askOrders.stream().map(Order::getPrice).min(Comparator.naturalOrder()).orElse(0.00);
         BID_PRICE = this.bidOrders.stream().map(Order::getPrice).max(Comparator.naturalOrder()).orElse(0.00);
+        ASK_VOLUME = this.askOrders.stream().filter(s -> s.getPrice() == ASK_PRICE).map(Order::getVolume).findAny().orElse(0.00);
+        BID_VOLUME = this.bidOrders.stream().filter(s -> s.getPrice() == BID_PRICE).map(Order::getVolume).findAny().orElse(0.00);
         timeCreated = System.currentTimeMillis();
     }
 
@@ -72,6 +76,14 @@ public class CoinModel implements Serializable {
 
     public double getBID_PRICE() {
         return BID_PRICE;
+    }
+
+    public double getASK_VOLUME() {
+        return ASK_VOLUME;
+    }
+
+    public double getBID_VOLUME() {
+        return BID_VOLUME;
     }
 
     @Override

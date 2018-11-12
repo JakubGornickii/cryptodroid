@@ -30,7 +30,8 @@ public class Init {
 
         Thread thread = new Thread(arbitrageThread);
         thread.start();
-
-
+/*String url = "http://api.coinbene.com/v1/market/orderbook?symbol={LTAG}btc";
+TestPaser testPaser = new TestPaser();
+testPaser.test(url);*/
     }
 }

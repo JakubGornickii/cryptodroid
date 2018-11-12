@@ -1,11 +1,12 @@
 package jg.cryptodroid.ExchangePaser;
 
 import jg.cryptodroid.enums.CoinList;
-import jg.cryptodroid.exchangebase.ExchangeBase;
+import jg.cryptodroid.inmemorydatabase.ExchangeBase;
 import jg.cryptodroid.mapper.ExchangeMapper;
 import jg.cryptodroid.model.CoinModel;
 import jg.cryptodroid.model.ExchangeModel;
 import jg.cryptodroid.service.CreateAnnotationClass;
+import jg.cryptodroid.service.ServerDataService;
 import org.springframework.web.client.RestClientException;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class ExchangePaser {
                         exchangeMapper.map(exchangeCoins.get(i), queryUrl, exchangeModel.getExchangeName()).ifPresent(s ->
                         {
                             coinModels.add(s);
-                            lastUpdate = System.currentTimeMillis();
+                            ServerDataService.queres();
                             active = true;
                         });
 
@@ -75,6 +76,8 @@ public class ExchangePaser {
     }
 
     public List<CoinModel> getData() {
+
+        lastUpdate = System.currentTimeMillis();
         return coinModels;
     }
 

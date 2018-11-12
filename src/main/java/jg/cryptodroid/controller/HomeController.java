@@ -11,7 +11,6 @@ public class HomeController {
 
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public ModelAndView home(ModelAndView model) {
-        System.out.println("tututu");
         String greet = "Hello World!";
         model.setViewName("index");
         model.addObject("greet", greet);

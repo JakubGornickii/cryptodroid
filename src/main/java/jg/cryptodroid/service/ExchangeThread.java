@@ -1,7 +1,7 @@
 package jg.cryptodroid.service;
 
 import jg.cryptodroid.ExchangePaser.ExchangePaser;
-import jg.cryptodroid.coinsbase.CoinsBase;
+import jg.cryptodroid.inmemorydatabase.CoinsBase;
 import jg.cryptodroid.model.CoinModel;
 
 import java.util.ArrayList;

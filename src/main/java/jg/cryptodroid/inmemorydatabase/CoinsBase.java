@@ -1,4 +1,4 @@
-package jg.cryptodroid.coinsbase;
+package jg.cryptodroid.inmemorydatabase;
 
 
 import jg.cryptodroid.model.CoinModel;

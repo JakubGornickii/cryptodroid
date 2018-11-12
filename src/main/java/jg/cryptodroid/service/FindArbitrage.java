@@ -1,6 +1,6 @@
 package jg.cryptodroid.service;
 
-import jg.cryptodroid.coinsbase.CoinsBase;
+import jg.cryptodroid.inmemorydatabase.CoinsBase;
 import jg.cryptodroid.enums.CoinList;
 import jg.cryptodroid.model.Arbitrage;
 import jg.cryptodroid.model.CoinModel;
@@ -40,17 +40,23 @@ public class FindArbitrage {
                                             value.get(j).getMakretName(),
                                             value.get(i).getTag().name(),
                                             value.get(i).getASK_PRICE(),
-                                            value.get(j).getBID_PRICE()
+                                            value.get(j).getBID_PRICE(),
+                                            value.get(i).getASK_VOLUME(),
+                                            value.get(j).getBID_VOLUME(),
+                                            (value.get(i).getTimeCreated() >= value.get(j).getTimeCreated()) ? value.get(i).getTimeCreated() : value.get(j).getTimeCreated())
+                            );
 
-                                    ));
                         }
                         if ((!value.get(i).getMakretName().equals(value.get(j).getMakretName())) && value.get(j).getASK_PRICE() < value.get(i).getBID_PRICE()) {
                             arbitrages.add(new Arbitrage(value.get(j).getMakretName(),
                                     value.get(i).getMakretName(),
                                     value.get(j).getTag().name(),
                                     value.get(j).getASK_PRICE(),
-                                    value.get(i).getBID_PRICE()
-                            ));
+                                    value.get(i).getBID_PRICE(),
+                                    value.get(j).getASK_VOLUME(),
+                                    value.get(i).getBID_VOLUME(),
+                                    (value.get(i).getTimeCreated() >= value.get(j).getTimeCreated()) ? value.get(i).getTimeCreated() : value.get(j).getTimeCreated())
+                            );
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 package jg.cryptodroid.controller;
 
-import jg.cryptodroid.exchangebase.ExchangeBase;
+import jg.cryptodroid.inmemorydatabase.ExchangeBase;
 import jg.cryptodroid.mapper.ExchangeDetailsMapper;
 import jg.cryptodroid.mapper.ExchangeStatusMapper;
 import jg.cryptodroid.modelDTO.ExchangeDetailsDTO;

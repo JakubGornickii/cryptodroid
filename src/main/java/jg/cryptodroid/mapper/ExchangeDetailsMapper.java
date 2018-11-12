@@ -1,7 +1,7 @@
 package jg.cryptodroid.mapper;
 
 import jg.cryptodroid.ExchangePaser.ExchangePaser;
-import jg.cryptodroid.coinsbase.CoinsBase;
+import jg.cryptodroid.inmemorydatabase.CoinsBase;
 import jg.cryptodroid.modelDTO.ExchangeCoinModelDTO;
 import jg.cryptodroid.modelDTO.ExchangeDetailsDTO;
 import org.springframework.stereotype.Component;
