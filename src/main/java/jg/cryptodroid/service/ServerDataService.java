@@ -11,7 +11,6 @@ public class ServerDataService {
 
     public static void queres(){
         queres++;
-
     }
 
     public long getActualData(){

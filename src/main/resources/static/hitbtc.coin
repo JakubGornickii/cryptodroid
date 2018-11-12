@@ -1,4 +1,4 @@
-82
+80
 HITBTC
 https://api.hitbtc.com/api/2/public/orderbook/{TAG}BTC
 ETH,0.0,0.0
@@ -31,7 +31,6 @@ ZIL,0.0,0.0
 BCD,0.0,0.0
 BTS,0.0,0.0
 BAT,0.0,0.0
-NANO,0.0,0.0
 BCN,0.0,0.0
 ICX,0.0,0.0
 DGB,0.0,0.0
@@ -78,7 +77,6 @@ RLC,0.0,0.0
 SNGLS,0.0,0.0
 RCN,0.0,0.0
 SNM,0.0,0.0
-NEBL,0.0,0.0
 CND,0.0,0.0
 STORM,0.0,0.0
 APPC,0.0,0.0
