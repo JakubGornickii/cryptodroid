@@ -16,13 +16,12 @@ public class TestPaser {
     public void test(String url) {
         List<String> stringList = new ArrayList<>();
         EnumSet<CoinList> set = EnumSet.allOf(CoinList.class);
-        System.out.println(set.size());
         for (CoinList coinList : set) {
             try {
                 RestTemplate restTemplate = new RestTemplate();
                 Object o = restTemplate.getForObject(url.replace("{TAG}", coinList.name()).replace("{LTAG}", coinList.name().toLowerCase()), Object.class);
                 Map<?,?> map = (Map)o;
-                if ((map.get("status").equals("ok"))){
+                if ((map.get("result") == null)){
                 stringList.add(coinList.name());
                    System.out.println("Dodano" +coinList.name());}
                    else {

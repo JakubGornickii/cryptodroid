@@ -19,7 +19,7 @@ public class Init {
 
     @PostConstruct
     public synchronized void init() {
-        TxtFileReader txtFileReader = new TxtFileReader();
+       TxtFileReader txtFileReader = new TxtFileReader();
         String[] marketList = txtFileReader.readExchangeList();
         for (String s : marketList) {
             ExchangePaser exchangePaser = new ExchangePaser(s);
@@ -30,7 +30,7 @@ public class Init {
 
         Thread thread = new Thread(arbitrageThread);
         thread.start();
-/*String url = "http://api.coinbene.com/v1/market/orderbook?symbol={LTAG}btc";
+/*String url = "https://api.lbkex.com/v1/depth.do?symbol={LTAG}_btc&size=10&merge=1";
 TestPaser testPaser = new TestPaser();
 testPaser.test(url);*/
     }

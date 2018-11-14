@@ -1,0 +1,14 @@
+11
+LBANK
+https://api.lbkex.com/v1/depth.do?symbol={LTAG}_btc&size=10&merge=1
+ETH,0.0,0.0
+BCC,0.0,0.0
+LTC,0.0,0.0
+DASH,0.0,0.0
+NEO,0.0,0.0
+ETC,0.0,0.0
+ZEC,0.0,0.0
+VET,0.0,0.0
+QTUM,0.0,0.0
+BTS,0.0,0.0
+SC,0.0,0.0

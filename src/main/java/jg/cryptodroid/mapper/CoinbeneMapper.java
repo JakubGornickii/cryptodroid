@@ -19,7 +19,7 @@ public class CoinbeneMapper implements ExchangeMapper {
     public Optional<CoinModel> map(CoinList coinList, String queryUrl, String exchangeName) {
         RestTemplate restTemplate = new RestTemplate();
         coinbeneModel =  restTemplate.getForObject(queryUrl.replace("{TAG}",coinList.name()).replace("{LTAG}",coinList.name().toLowerCase()), CoinbeneModel.class);
-        System.out.println(coinList);
+
         return Optional.of(new CoinModel(coinList, coinbeneModel.getOrderbook().getBids()
                 .stream()
                 .map(s -> new Order(s.getPrice(), s.getQuantity()))
